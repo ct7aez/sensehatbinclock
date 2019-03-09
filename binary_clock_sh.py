@@ -4,6 +4,7 @@ from sense_hat import SenseHat
 import time, datetime
 
 hat = SenseHat()
+event = hat.stick.get_event()
 
 year_color = (0, 63, 0)
 month_color = (0, 0, 70)
@@ -32,6 +33,17 @@ if time.localtime().tm_isdst  == 1:
     weekday_color = (60, 60, 0)
 else:
     weekday_color = (0, 60, 60)
+
+def display_env():
+    if event.action == 'pressed':
+    t = round(hat.get_temperature(), 1)
+    p = round(hat.get_pressure(), 1)
+    h = round(hat.get_humidity(), 1)
+    hat.clear()
+    msg = "Temp = %s, Pressão = %s, Humidade = %s" % (t, p, h)
+
+    hat.show_message(msg, scroll_speed=0.05)
+    hat.clear()
 
 while True:
 	t = datetime.datetime.now()
