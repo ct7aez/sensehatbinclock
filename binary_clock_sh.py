@@ -46,4 +46,4 @@ while True:
 	display_binary(t.minute, 5, minute_color)
 	display_binary(t.second, 6, second_color)
 #	display_binary(t.microsecond / 10000, 7, hundrefths_color)
-	time.sleep(0.0001)
+	time.sleep(0.001)
