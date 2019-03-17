@@ -36,14 +36,13 @@ else:
 
 def display_env():
     if event.action == 'pressed':
-    t = round(hat.get_temperature(), 1)
-    p = round(hat.get_pressure(), 1)
-    h = round(hat.get_humidity(), 1)
-    hat.clear()
-    msg = "Temp = %s, Pressão = %s, Humidade = %s" % (t, p, h)
-
-    hat.show_message(msg, scroll_speed=0.05)
-    hat.clear()
+        t = round(hat.get_temperature(), 1)
+        p = round(hat.get_pressure(), 1)
+        h = round(hat.get_humidity(), 1)
+        hat.clear()
+        msg = 'Temp = %s C, Pressão = %s mbars, Humidade = %s' %(t,p,h)
+        hat.show_message(msg, scroll_speed=0.05)
+        hat.clear()
 
 while True:
 	t = datetime.datetime.now()
