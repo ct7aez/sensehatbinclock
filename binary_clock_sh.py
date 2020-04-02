@@ -12,8 +12,7 @@ hour_color = (0, 63, 0)
 minute_color = (0, 0, 70)
 second_color = (63, 0, 0)
 hundrefths_color = (48, 48, 48)
-weekday_color  = (63, 63, 0)
-dst_color = (63, 63, 0)
+#weekday_color  = (60, 60, 0)
 off = (0, 0, 0)
 on = (63, 63, 63)
 
@@ -29,10 +28,10 @@ def display_binary(value, row, color):
 
 def display_dst():
     global weekday_color
-    if time.localtime().tm_isdst  == '1':
-            weekday_color = (60, 60, 0)
-    else:
-            weekday_color = (0, 60, 60)
+if time.localtime().tm_isdst  == 1:
+    weekday_color = (60, 60, 0)
+else:
+    weekday_color = (0, 60, 60)
 
 while True:
 	t = datetime.datetime.now()
