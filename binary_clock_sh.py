@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from sense_hat import SenseHat
-import time, datetime
+import time, datetime, math
 
 hat = SenseHat()
 event = hat.stick.get_events()
@@ -49,7 +49,7 @@ def display_env():
 while True:
         display_env()
         display_dst()
-        temp = round(hat.get_temperature(), 1)
+        temp = math.floor(hat.get_temperature())
 	t = datetime.datetime.now()
         w = datetime.datetime.today()
 	display_binary(t.second, 6, second_color)
