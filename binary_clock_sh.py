@@ -42,14 +42,14 @@ def display_env():
             p = round(hat.get_pressure(), 1)
             h = round(hat.get_humidity(), 1)
             hat.clear()
-            msg = "Temp %sC  Press %smbars  Humid %s%%" %(t,p,h)
+            msg = "Temp %sC  Press %smbar  Humid %s%%rH" %(t,p,h)
             hat.show_message(msg, scroll_speed=0.07)
             hat.clear()
 
 while True:
         display_env()
         display_dst()
-        temp = hat.get_temperature()
+        temp = round(hat.get_temperature(), 1)
 	t = datetime.datetime.now()
         w = datetime.datetime.today()
 	display_binary(t.second, 6, second_color)
