@@ -45,13 +45,9 @@ def display_env():
             msg = "Temp %sC  Press %smbar  Humid %s%%rH" %(t,p,h)
             hat.show_message(msg, scroll_speed=0.07)
             hat.clear()
+            display_time()
 
-while True:
-        display_env()
-	t = datetime.datetime.now()
-        w = datetime.datetime.today()
-	display_binary(t.second, 6, second_color)
-        if t.second == 0:
+def display_time():
             display_binary(t.minute, 5, minute_color)
             display_binary(t.hour, 4, hour_color)
             display_binary(t.year % 100, 0, year_color)
@@ -60,6 +56,14 @@ while True:
             display_dst()
             display_binary(w.isoweekday(), 3, weekday_color)
     #	display_binary(t.microsecond / 10000, 7, hundrefths_color)
+
+while True:
+        display_env()
+	t = datetime.datetime.now()
+        w = datetime.datetime.today()
+	display_binary(t.second, 6, second_color)
+        if t.second == 0:
+            display_time()
             temp = math.floor(hat.get_temperature())
             display_binary(int(temp), 7, temp_color)
         else:
